@@ -3,8 +3,8 @@ server:
   servlet:
     context-path: /api/v1/contributor-management-service
 
-github:
-  user-detail-url: https://api.github.com/repos/microsoft/azure-maven-plugins/contributors
+git-hub:
+  contributor-detail-url: https://api.github.com/repos/microsoft/azure-maven-plugins/contributors
 
 spring:
   data:
