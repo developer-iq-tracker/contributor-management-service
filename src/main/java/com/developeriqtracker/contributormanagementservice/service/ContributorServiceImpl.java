@@ -23,18 +23,18 @@ public class ContributorServiceImpl implements ContributorService {
     @Override
     public List<Contributor> syncContributorDetailsFromGithub() {
         List<Contributor> contributors = new ArrayList<>();
-        log.info("syncContributorDetailsFromGithub | process Started");
+        log.info("sync Contributor Details From Github | process Started");
         List<ContributorDto> contributorDtoList = this.githubExternalClientService.getContributorDetails();
 
         contributorDtoList.forEach(contributorDto -> {
             Contributor contributor = this.generateGitHubUserObject(contributorDto);
-            log.info("syncContributorDetailsFromGithub | save new record | {}", contributor);
+            log.info("sync Contributor Details From Github | save new record | {}", contributor);
             this.checkAndRemoveOldRecords(contributor);
             contributors.add(contributor);
         });
 
         this.contributorRepository.saveAll(contributors);
-        log.info("syncContributorDetailsFromGithub | process end");
+        log.info("sync Contributor Details From Github | process end");
         return contributors;
 
     }
